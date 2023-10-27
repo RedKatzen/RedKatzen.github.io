@@ -11,139 +11,56 @@
   <title>Frontend Mentor | Age calculator app</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    @font-face {
-      font-family: Poppins-Bold;
-      src: url(assets/fonts/Poppins-Bold.ttf);
-    }
-    .attribution {font-size: 11px;text-align: center;}
-    .attribution a {color: hsl(228, 45%, 44%);}
-    body {
-      font-family: Poppins-Bold;
-      background-color: gainsboro;
-    }
-    .main-container {
-      width: 40rem;
-      margin: 5rem auto 2.4rem;
-      background-color: antiquewhite;
-    }
-    .regular {
-      display: flex;
-      flex-direction: column;
-      height: 3.5rem;
-      padding: 1.5rem 8rem .9875rem 0rem;
-      background-color: aquamarine;
-    }
-    .inputs-container, .labels-container {
-      display: flex;
-      justify-content: space-evenly;
-    }
-    label {
-      width: 4.7568em;
-      height: 2.178em;
-    } 
-    input {
-      width: 5em;
-      height: 2em;
-    }
-    .button-container {
-      display: flex;
-      align-items: center;
-      justify-content: end;
-      width: 100%;
-      height: 2.5rem;
-      background-color: brown;
-    }
-    #btnSubmit {
-      margin-right: 4.45rem;
-    }
-    .ageold-container {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-
-    }
-    .result-ageold-container {
-      display: flex;
-      flex-direction: row;
-      width: 100%;
-    }
-    .date {
-      padding: 0 .25rem 0 1.75rem;
-    }
-    .result-ageold-container h3 {
-      padding-top: .25rem;
-    }
-  </style>
+  <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 
 <body>
+  <!-- Container -->
+  <main class="container" role="main">
+    <div class="content">
+      <!-- Input Date of Birth -->
+      <div class="input">
+        <!-- Day -->
+        <div>
+          <h6>Day</h6>
+          <input type="text" placeholder="DD" id="day">
+          <p class="error"></p>
+        </div>
+        <!-- Month -->
+        <div>
+          <h6>Month</h6>
+          <input type="text" placeholder="MM" id="month">
+          <p class="error"></p>
+        </div>
+        <!-- Year -->
+        <div>
+          <h6>Year</h6>
+          <input type="text" placeholder="YYYY" id="year">
+          <p class="error"></p>
+        </div>
+      </div>
+      <!-- Button -->
+        <hr>
+        <button id="btnSubmit">
+          <img src="./assets/images/icon-arrow.svg" alt="">
+        </button>
 
-  <div class="main-container">
-    <article class="regular">
-      <div class="labels-container">
-        <label for="day">day</label>
-        <label for="month">month</label>
-        <label for="year">year</label>
-      </div>
-      <div class="inputs-container">
-        <input type="text" placeholder="DD" id="day">
-        <input type="text" placeholder="MM" id="month">
-        <input type="text" placeholder="YYYY" id="year">
-      </div>
-    </article>
-    <div class="button-container">
-      <button type="submit" id="btnSubmit">Send</button>
-    </div>
-    <div class="ageold-container">
-      <div class="result-ageold-container">
-        <h2 id="years" class="date">- -</h2>
-        <h3>years</h3>
-      </div>
-      <div class="result-ageold-container">
-        <h2 id="months" class="date">- -</h2>
-        <h3>months</h3>
-      </div>
-      <div class="result-ageold-container">
-        <h2 id="days" class="date">- -</h2>
-        <h3>days</h3>
+      <!-- Result -->
+      <div class="result">
+        <h1><span id="yearsOut">--</span> years</h1>
+        <h1><span id="monthsOut">--</span> months</h1>
+        <h1><span id="daysOut">--</span> days</h1>
       </div>
     </div>
-  </div>
+  </main>
 
-  <div class="attribution">
+
+  <footer class="attribution" role="contentinfo">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+    Coded by <a href="https://github.com/Shashikantbharti">Shashikant Bharti</a>.
+  </footer>
 
-  <script>
-    const input_birth_day = document.getElementById('day');
-    const input_birth_month = document.getElementById('month');
-    const input_birth_year = document.getElementById('year');
-    const btnSubmit = document.getElementById('btnSubmit');
 
-    function calcAgeOld() {
-      const userYear = parseInt(input_birth_year.value, 10);
-      const userMonth = parseInt(input_birth_month.value, 10) - 1; // Subtrai 1 do mês porque os meses em JavaScript são base 0 (0 = janeiro, 1 = fevereiro, etc.)
-      const userDay = parseInt(input_birth_day.value, 10);
-
-      const currentDate = new Date();
-      const birthDate = new Date(userYear, userMonth, userDay);
-
-      const ageInMilliseconds = currentDate - birthDate;
-      const ageDate = new Date(ageInMilliseconds);
-
-      const years = Math.abs(ageDate.getUTCFullYear() - 1970);
-      const months = ageDate.getUTCMonth();
-      const days = ageDate.getUTCDate() - 1
-
-      document.getElementById('years').innerHTML = years;
-      document.getElementById('months').innerHTML = months
-      document.getElementById('days').innerHTML = days
-    }
-
-    btnSubmit.addEventListener('click', calcAgeOld);
-  </script>
+  <script src="./assets/js/main.js"></script>
 </body>
-
 </html>
