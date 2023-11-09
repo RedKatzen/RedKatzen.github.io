@@ -14,7 +14,7 @@ function calcAgeOld() {
   const birthday = `${Y}-${M}-${D}`;
 
   if (validateDay() && validateMonth() && validateYear()) {
-    console.log('Feito');
+    console.log('Done');
   } else {
     return;
   }
@@ -52,10 +52,10 @@ const validateDay = () => {
   const M = input_month.value;
   const Y = input_year.value;
   if (D == '') {
-    showMessage(input_day, 'Este campo é necessário', errorStyle);
+    showMessage(input_day, 'This field is necessary', errorStyle);
     return false;
   } else if (!validDay(Y, M, D)) {
-    showMessage(input_day, 'É necessário um dia válido', errorStyle);
+    showMessage(input_day, 'It is necessary a valid day', errorStyle);
     return false;
   } else {
     showMessage(input_day, '', '');
@@ -70,10 +70,10 @@ input_month.addEventListener('blur', () => {
 const validateMonth = () => {
   const M = input_month.value;
   if (M == '') {
-    showMessage(input_month, 'Este campo é necessário', errorStyle);
+    showMessage(input_month, 'This field is necessary', errorStyle);
     return false;
   } else if (!validMonth(M)) {
-    showMessage(input_month, 'É necessário um mês válido', errorStyle);
+    showMessage(input_month, 'It is necessary a valid day', errorStyle);
     return false;
   } else {
     showMessage(input_month, '', '');
@@ -90,10 +90,10 @@ const validateYear = () => {
   const M = input_month.value;
   const D = input_day.value;
   if (Y == '') {
-    showMessage(input_year, 'Este campo é necessário', errorStyle);
+    showMessage(input_year, 'This field is necessary', errorStyle);
     return false;
   } else if (!validYear(Y, M, D)) {
-    showMessage(input_year, 'Deve ser no passado', errorStyle);
+    showMessage(input_year, 'Must be in the past', errorStyle);
     return false;
   } else {
     showMessage(input_year, '', '');
